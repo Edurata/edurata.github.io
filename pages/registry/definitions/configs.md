@@ -13,7 +13,10 @@ grand_parent: Registry
     - [Type Aliases](#type-aliases)
   - [Type Aliases](#type-aliases-1)
     - [Step](#step)
+    - [StepBase](#stepbase)
     - [StepDependencyString](#stepdependencystring)
+    - [StepWithInline](#stepwithinline)
+    - [StepWithSource](#stepwithsource)
 - [Interfaces](#interfaces-1)
   - [Interface: ComputeResources](#interface-computeresources)
     - [Table of contents](#table-of-contents-1)
@@ -86,15 +89,30 @@ grand_parent: Registry
 ### Type Aliases
 
 - [Step](#step)
+- [StepBase](#stepbase)
 - [StepDependencyString](#stepdependencystring)
+- [StepWithInline](#stepwithinline)
+- [StepWithSource](#stepwithsource)
 
 ## Type Aliases
 
 ### Step
 
-Ƭ **Step**: \{ `dependencies?`: \{ `[key: string]`: [`StepDependency`](#interfacesstepdependencymd) \| [`StepDependencyString`](#stepdependencystring);  } ; `description?`: `string` ; `foreach?`: [`StepDependency`](#interfacesstepdependencymd) \| [`StepDependencyString`](#stepdependencystring) ; `source?`: `Source`  } & [`WorkflowConfig`](#interfacesworkflowconfigmd) \| [`FunctionConfig`](#interfacesfunctionconfigmd)
+Ƭ **Step**: [`StepWithSource`](#stepwithsource) \| [`StepWithInline`](#stepwithinline)
 
-Schema for an educational function step.
+___
+
+### StepBase
+
+Ƭ **StepBase**: `Object`
+
+#### Type declaration
+
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `description?` | `string` | An additional description next to the key of the step. |
+| `foreach?` | [`StepDependency`](#interfacesstepdependencymd) \| [`StepDependencyString`](#stepdependencystring) | If defined and the dependency is of type array, this step will loop over the array. The dependencies attribute can then use "each" as StepDependencySchema.stepId, pointing to each iteration. |
+| `if?` | `string` | If defined, this step will only execute if the condition is true. The condition is a javascript boolean expression. |
 
 ___
 
@@ -109,6 +127,22 @@ Schema for a string representing an educational function step dependency.
 ```ts
 "stepId.outputId.outputPath"
 ```
+
+___
+
+### StepWithInline
+
+Ƭ **StepWithInline**: [`StepBase`](#stepbase) & [`FunctionConfig`](#interfacesfunctionconfigmd)
+
+Schema for a workflow step with a function directly defined inline with code property
+
+___
+
+### StepWithSource
+
+Ƭ **StepWithSource**: [`StepBase`](#stepbase) & \{ `dependencies?`: \{ `[key: string]`: [`StepDependency`](#interfacesstepdependencymd) \| [`StepDependencyString`](#stepdependencystring);  } ; `source?`: `Source`  }
+
+Schema for a workflow step with source
 
 # Interfaces
 
