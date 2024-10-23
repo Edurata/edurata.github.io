@@ -111,7 +111,7 @@ ___
 | Name | Type | Description |
 | :------ | :------ | :------ |
 | `description?` | `string` | An additional description next to the key of the step. |
-| `foreach?` | [`StepDependency`](#interfacesstepdependencymd) \| [`StepDependencyString`](#stepdependencystring) | If defined and the dependency is of type array, this step will loop over the array. The dependencies attribute can then use "each" as StepDependencySchema.stepId, pointing to each iteration. |
+| `foreach?` | [`StepDependency`](#interfacesstepdependencymd) \| [`StepDependencyString`](#stepdependencystring) | If defined and the dependency is of type array, this step will loop over the array. The props attribute can then use "each" as StepDependencySchema.stepId, pointing to each iteration. |
 | `if?` | `string` | If defined, this step will only execute if the condition is true. The condition is a javascript boolean expression. |
 
 ___
@@ -140,7 +140,7 @@ ___
 
 ### StepWithSource
 
-Ƭ **StepWithSource**: [`StepBase`](#stepbase) & \{ `dependencies?`: \{ `[key: string]`: [`StepDependency`](#interfacesstepdependencymd) \| [`StepDependencyString`](#stepdependencystring);  } ; `source?`: `Source`  }
+Ƭ **StepWithSource**: [`StepBase`](#stepbase) & \{ `props?`: \{ `[key: string]`: [`StepDependency`](#interfacesstepdependencymd) \| [`StepDependencyString`](#stepdependencystring);  } ; `source?`: `Source`  }
 
 Schema for a workflow step with source
 
@@ -807,22 +807,13 @@ assuming the step "inputs" has an output "name" that is a complex object with a 
 
 #### Properties
 
-- [dependencies](#dependencies)
 - [outputId](#outputid)
 - [outputPath](#outputpath)
+- [props](#props)
 - [stepId](#stepid)
 - [value](#value)
 
 ### Properties
-
-#### dependencies
-
-• `Optional` **dependencies**: [`StepDependency`](#interfacesstepdependencymd)[]
-
-If the dependency is a string with interpolated values, these are the interpolated values, if any.
-These are mostly autopopulated and usually don't need to be set manually.
-
-___
 
 #### outputId
 
@@ -846,6 +837,15 @@ to point to the value. e.g. "data.name" to point to the value of the key "name" 
 ```ts
 ["data", "name"]
 ```
+
+___
+
+#### props
+
+• `Optional` **props**: [`StepDependency`](#interfacesstepdependencymd)[]
+
+If the dependency is a string with interpolated values, these are the interpolated values, if any.
+These are mostly autopopulated and usually don't need to be set manually.
 
 ___
 
@@ -918,26 +918,13 @@ assuming the step "inputs" has an output "name" that is a complex object with a 
 
 #### Properties
 
-- [dependencies](#dependencies)
 - [outputId](#outputid)
 - [outputPath](#outputpath)
+- [props](#props)
 - [stepId](#stepid)
 - [value](#value)
 
 ### Properties
-
-#### dependencies
-
-• `Optional` **dependencies**: [`StepDependency`](#interfacesstepdependencymd)[]
-
-If the dependency is a string with interpolated values, these are the interpolated values, if any.
-These are mostly autopopulated and usually don't need to be set manually.
-
-##### Inherited from
-
-[StepDependency](#interfacesstepdependencymd).[dependencies](#dependencies)
-
-___
 
 #### outputId
 
@@ -969,6 +956,19 @@ to point to the value. e.g. "data.name" to point to the value of the key "name" 
 ##### Inherited from
 
 [StepDependency](#interfacesstepdependencymd).[outputPath](#outputpath)
+
+___
+
+#### props
+
+• `Optional` **props**: [`StepDependency`](#interfacesstepdependencymd)[]
+
+If the dependency is a string with interpolated values, these are the interpolated values, if any.
+These are mostly autopopulated and usually don't need to be set manually.
+
+##### Inherited from
+
+[StepDependency](#interfacesstepdependencymd).[props](#props)
 
 ___
 
@@ -1129,7 +1129,7 @@ ___
 • **steps**: `Object`
 
 Each step of the workflow specified by a unique key and its definition as a value.
-The order of execution and dataflow is inferred by "dependencies".
+The order of execution and dataflow is inferred by "props".
 
 ##### Index signature
 
