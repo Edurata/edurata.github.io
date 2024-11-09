@@ -13,4 +13,4 @@ If the executions should run in a regular interval, the `schedule` attribute can
 
 ## Manual executions
 
-You can also execute a workflow through a button in the UI
+You can also execute a workflow through a button in the UI or through an api call at `api.edurata.com/deployment/{deploymentId}/execute`
