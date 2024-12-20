@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Artefacts
+title: Cache
 parent: Input Output Processing
 grand_parent: Workflows
 nav_order: 2

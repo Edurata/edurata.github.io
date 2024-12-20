@@ -1,4 +1,4 @@
----
+<!-- ---
 layout: default
 title: Image scraper
 parent: Examples
@@ -35,4 +35,4 @@ This workflow is iterating through a list of names of celebrities and googling a
 
 - [scrape-images](https://github.com/juliandm/penetratethecabinet/blob/main/functions/scrape-images): This custom function is reading a json file with the names of celebrities and another json file with a list of already processed celebrities, iterates through them, gets a picture from google and uploads it to a bucket.
 - [download-s3](https://github.com/Edurata/edurata-functions/blob/main/etl/extract/download-s3): This function is downloading both json files from a bucket.
-- [upload-s3](https://github.com/Edurata/edurata-functions/blob/main/etl/load/upload-s3): This function uploads the json with the new state to the bucket.
+- [upload-s3](https://github.com/Edurata/edurata-functions/blob/main/etl/load/upload-s3): This function uploads the json with the new state to the bucket. -->
