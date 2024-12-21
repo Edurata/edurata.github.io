@@ -9,4 +9,3 @@ nav_order: 12
 Following features are planned
 
 - Caching of artefacts in Filesystem
--

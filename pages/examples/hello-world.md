@@ -1,31 +1,26 @@
 ---
 layout: default
-title: Breakfast Info
+title: Hello world
 parent: Examples
 nav_order: 1
 ---
 
 ![Alt Text](../../assets/breakfast-info.png)
 
-# Breakfast Info
+# Hello World App
 
-This workflow is taking a location through coordinates (latitude, longitude) and providing daily news and weather information for it. It is just meant as a showcase so the end result is not very useful. All information is provided by [open weather map](https://openweathermap.org/api), [google maps](https://developers.google.com/maps/documentation) and [news api](https://newsapi.org/).
+This workflow is taking a message as input and sends runs it through the whalesay command. It is just meant as a showcase so the end result is not very useful.
 
 ## Quickstart
 
-1. Create the necessary secrets in the [secrets section](https://edurata.com/global/secrets)
-   1. Create an account on [open weather map](https://openweathermap.org/api) and copy the token into `WEATHER_API_KEY`
-   2. Create an account on [google maps](https://developers.google.com/maps/documentation) and copy the token into `GOOGLE_API_KEY`
-   3. Create an account on [news api](https://newsapi.org/) and copy the token into the secret `NEWS_API_KEY`
-   4. Create aws credentials that are scoped to ses and copy them into the secrets `AWS_ACCESS_KEY_ID` and `AWS_SECRET_ACCESS_KEY`
 1. Go to deployments and [create a new deployment](https://edurata.com/deployments)
-   1. Enter any name, e.g. `breakfast-info-example`
-   2. Enter as source repoUrl: `github.com/Edurata/edurata-workflows` and path `examples/breakfast-info.eduwc.yml` and ref `main`
+   1. Enter any name, e.g. `hello-world-example`
+   2. Enter as source repoUrl: `github.com/Edurata/edurata-workflows` and path `examples/hello-world.yaml` and ref `main`
    3. Save and deploy
 
 ## Showcase of features
 
-- Using a generic function `axios` to call several APIs
+- Testing the basic functionality of printing in python nodejs, inline code and a container
 - Using secrets
 
 ## Workflow
