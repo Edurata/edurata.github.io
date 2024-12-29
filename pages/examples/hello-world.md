@@ -20,14 +20,9 @@ This workflow is taking a message as input and sends runs it through the whalesa
 
 ## Showcase of features
 
-- Testing the basic functionality of printing in python nodejs, inline code and a container
+- Testing the basic functionality of printing in python nodejs, inline code and a docker container
 - Using secrets
 
 ## Workflow
 
-- [definition](https://github.com/Edurata/edurata-workflows/blob/main/examples/breakfast-info.eduwc.yaml)
-
-## Functions
-
-- [axios](https://github.com/Edurata/edurata-functions/blob/main/general/axios): This function is calling an API and returning the result. It is using the [axios](https://www.npmjs.com/package/axios) library.
-- [send-ses](https://github.com/Edurata/edurata-functions/blob/main/etl/load/send-ses): This function is sending an email through AWS SES. It is using the [botocore](https://pypi.org/project/botocore/) library.
+- [definition](https://github.com/Edurata/edurata-workflows/blob/main/examples/hello-world.yaml)
