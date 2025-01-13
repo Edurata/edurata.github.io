@@ -222,8 +222,10 @@ The memory allocated. The available memory values depend on the amount of vCPUs 
 #### Properties
 
 - [description](#description)
+- [inputs](#inputs)
 - [interface](#interface)
 - [name](#name)
+- [outputs](#outputs)
 - [title](#title)
 
 ### Properties
@@ -233,6 +235,39 @@ The memory allocated. The available memory values depend on the amount of vCPUs 
 • `Optional` **description**: `string`
 
 An additional description of the workflow or function
+
+___
+
+#### inputs
+
+• **inputs**: `Object`
+
+The global inputs of the workflow. These can be used in any step of the workflow. Here fixed values or secrets or variables can be accessed.
+ *
+
+**`Example`**
+
+```ts
+{ "name": "${variables.employees.top}" }
+ *
+```
+
+**`Example`**
+
+```ts
+{ "name": "John" }
+ *
+```
+
+**`Example`**
+
+```ts
+{ "password": "${secrets.password}" }
+```
+
+##### Index signature
+
+▪ [key: `string`]: [`StepDependencyUseAs`](#interfacesstepdependencyuseasmd)
 
 ___
 
@@ -249,6 +284,18 @@ ___
 • `Optional` **name**: `string`
 
 An identifier that is unique in the registry. It is used as reference in deployments or workflows.
+
+___
+
+#### outputs
+
+• **outputs**: `Object`
+
+Outputs of the workflow that can be used as inputs in other workflows or just to inspect the output.
+
+##### Index signature
+
+▪ [key: `string`]: [`StepDependencyUseAs`](#interfacesstepdependencyuseasmd)
 
 ___
 
@@ -283,8 +330,10 @@ Represents the configuration schema for a function.
 - [entrypoint](#entrypoint)
 - [exclude](#exclude)
 - [include](#include)
+- [inputs](#inputs)
 - [interface](#interface)
 - [name](#name)
+- [outputs](#outputs)
 - [registry](#registry)
 - [runtime](#runtime)
 - [title](#title)
@@ -343,6 +392,43 @@ Specifies which files to include in the function. Can be a glob pattern. Default
 
 ___
 
+#### inputs
+
+• **inputs**: `Object`
+
+The global inputs of the workflow. These can be used in any step of the workflow. Here fixed values or secrets or variables can be accessed.
+ *
+
+**`Example`**
+
+```ts
+{ "name": "${variables.employees.top}" }
+ *
+```
+
+**`Example`**
+
+```ts
+{ "name": "John" }
+ *
+```
+
+**`Example`**
+
+```ts
+{ "password": "${secrets.password}" }
+```
+
+##### Index signature
+
+▪ [key: `string`]: [`StepDependencyUseAs`](#interfacesstepdependencyuseasmd)
+
+##### Inherited from
+
+[Config](#interfacesconfigmd).[inputs](#inputs)
+
+___
+
 #### interface
 
 • `Optional` **interface**: [`Interface`](#interfacesinterfacemd)
@@ -364,6 +450,22 @@ An identifier that is unique in the registry. It is used as reference in deploym
 ##### Inherited from
 
 [Config](#interfacesconfigmd).[name](#name)
+
+___
+
+#### outputs
+
+• **outputs**: `Object`
+
+Outputs of the workflow that can be used as inputs in other workflows or just to inspect the output.
+
+##### Index signature
+
+▪ [key: `string`]: [`StepDependencyUseAs`](#interfacesstepdependencyuseasmd)
+
+##### Inherited from
+
+[Config](#interfacesconfigmd).[outputs](#outputs)
 
 ___
 
@@ -1017,8 +1119,10 @@ Represents the configuration schema for a workflow.
 
 - [apiRevision](#apirevision)
 - [description](#description)
+- [inputs](#inputs)
 - [interface](#interface)
 - [name](#name)
+- [outputs](#outputs)
 - [schedule](#schedule)
 - [steps](#steps)
 - [title](#title)
@@ -1045,6 +1149,43 @@ An additional description of the workflow or function
 
 ___
 
+#### inputs
+
+• **inputs**: `Object`
+
+The global inputs of the workflow. These can be used in any step of the workflow. Here fixed values or secrets or variables can be accessed.
+ *
+
+**`Example`**
+
+```ts
+{ "name": "${variables.employees.top}" }
+ *
+```
+
+**`Example`**
+
+```ts
+{ "name": "John" }
+ *
+```
+
+**`Example`**
+
+```ts
+{ "password": "${secrets.password}" }
+```
+
+##### Index signature
+
+▪ [key: `string`]: [`StepDependencyUseAs`](#interfacesstepdependencyuseasmd)
+
+##### Inherited from
+
+[Config](#interfacesconfigmd).[inputs](#inputs)
+
+___
+
 #### interface
 
 • `Optional` **interface**: [`Interface`](#interfacesinterfacemd)
@@ -1066,6 +1207,22 @@ An identifier that is unique in the registry. It is used as reference in deploym
 ##### Inherited from
 
 [Config](#interfacesconfigmd).[name](#name)
+
+___
+
+#### outputs
+
+• **outputs**: `Object`
+
+Outputs of the workflow that can be used as inputs in other workflows or just to inspect the output.
+
+##### Index signature
+
+▪ [key: `string`]: [`StepDependencyUseAs`](#interfacesstepdependencyuseasmd)
+
+##### Inherited from
+
+[Config](#interfacesconfigmd).[outputs](#outputs)
 
 ___
 
