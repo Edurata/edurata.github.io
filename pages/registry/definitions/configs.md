@@ -231,7 +231,7 @@ The memory allocated. The available memory values depend on the amount of vCPUs 
 
 #### apiRevision
 
-• `Optional` **apiRevision**: ``"edurata.io/v1"``
+• `Optional` **apiRevision**: ``"edurata.io/workflow/v1"``
 
 Refers to the version of this schema and should be updated whenever the schema changes
 
@@ -302,7 +302,7 @@ Represents the configuration schema for a function.
 
 #### apiRevision
 
-• `Optional` **apiRevision**: ``"edurata.io/v1"``
+• `Optional` **apiRevision**: ``"edurata.io/workflow/v1"``
 
 Refers to the version of this schema and should be updated whenever the schema changes
 
@@ -1040,7 +1040,7 @@ Represents the configuration schema for a workflow.
 
 #### apiRevision
 
-• `Optional` **apiRevision**: ``"edurata.io/v1"``
+• `Optional` **apiRevision**: ``"edurata.io/workflow/v1"``
 
 Refers to the version of this schema and should be updated whenever the schema changes
 

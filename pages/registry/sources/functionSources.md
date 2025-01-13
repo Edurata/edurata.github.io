@@ -32,7 +32,7 @@ If you use a default branch or tag as `ref` to target a function and push anothe
 The following workflow configs in which functions are defined as sources in steps
 
 ```yaml
-apiRevision: edurata.io/v1
+apiRevision: edurata.io/workflow/v1
 name: test-workflow
 steps:
     foo-step:
@@ -63,7 +63,7 @@ You can target an image repo as source if you want to run a whole image instead 
 ### Example
 
 ```yaml
-apiRevision: edurata.io/v1
+apiRevision: edurata.io/workflow/v1
 name: test-workflow
 steps:
     foo-step:

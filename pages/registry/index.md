@@ -19,7 +19,7 @@ Both Functions and Workflows are defined through config files. These config file
 Config files always have a basic structure like the following:
 
 ```yaml
-apiVersion: "@edurata.io/v1"
+apiVersion: "@edurata.io/workflow/v1"
 title: Example Function or Workflow
 description: Anything to explain what's going on
 interface:

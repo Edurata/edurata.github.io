@@ -11,7 +11,7 @@ nav_order: 2
 In order to register a workflow into the registry you need to write a config that defines the workflow fully.
 
 ```yaml
-apiRevision: edurata.io/v1
+apiRevision: edurata.io/workflow/v1
 name: foo-workflow
 description: |
   Test workflow to show how to define a workflow.
