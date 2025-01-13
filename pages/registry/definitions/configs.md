@@ -221,21 +221,12 @@ The memory allocated. The available memory values depend on the amount of vCPUs 
 
 #### Properties
 
-- [apiRevision](#apirevision)
 - [description](#description)
 - [interface](#interface)
 - [name](#name)
 - [title](#title)
 
 ### Properties
-
-#### apiRevision
-
-• `Optional` **apiRevision**: ``"edurata.io/workflow/v1"``
-
-Refers to the version of this schema and should be updated whenever the schema changes
-
-___
 
 #### description
 
@@ -302,13 +293,9 @@ Represents the configuration schema for a function.
 
 #### apiRevision
 
-• `Optional` **apiRevision**: ``"edurata.io/workflow/v1"``
+• `Optional` **apiRevision**: ``"edurata.io/function/v1"``
 
 Refers to the version of this schema and should be updated whenever the schema changes
-
-##### Inherited from
-
-[Config](#interfacesconfigmd).[apiRevision](#apirevision)
 
 ___
 
@@ -554,7 +541,7 @@ ___
 
 #### type
 
-• **type**: [`Interface`](#interfacesinterfacemd)
+• **type**: ``"string"`` \| ``"number"`` \| ``"bigint"`` \| ``"boolean"`` \| ``"undefined"`` \| ``"object"`` \| ``"integer"`` \| ``"null"`` \| ``"array"`` \| ``"any"`` \| ``"file"`` \| ``"env"`` \| ``"cmdValue"`` \| ``"cmdKeyValue"`` \| ``"meta"`` \| ``"dependency"`` \| ``"interpolation"``
 
 
 <a name="interfacesregistrymd"></a>
@@ -1043,10 +1030,6 @@ Represents the configuration schema for a workflow.
 • `Optional` **apiRevision**: ``"edurata.io/workflow/v1"``
 
 Refers to the version of this schema and should be updated whenever the schema changes
-
-##### Inherited from
-
-[Config](#interfacesconfigmd).[apiRevision](#apirevision)
 
 ___
 
