@@ -240,9 +240,9 @@ ___
 
 #### inputs
 
-• **inputs**: `Object`
+• `Optional` **inputs**: `Object`
 
-The global inputs of the workflow. These can be used in any step of the workflow. Here fixed values or secrets or variables can be accessed.
+The global inputs of the workflow (or function). These can be used in any step of the workflow. Here fixed values or secrets or variables can be accessed.
  *
 
 **`Example`**
@@ -289,9 +289,9 @@ ___
 
 #### outputs
 
-• **outputs**: `Object`
+• `Optional` **outputs**: `Object`
 
-Outputs of the workflow that can be used as inputs in other workflows or just to inspect the output.
+Outputs of the workflow or function that can be used as inputs in other workflows or functions or just to inspect the output.
 
 ##### Index signature
 
@@ -394,9 +394,9 @@ ___
 
 #### inputs
 
-• **inputs**: `Object`
+• `Optional` **inputs**: `Object`
 
-The global inputs of the workflow. These can be used in any step of the workflow. Here fixed values or secrets or variables can be accessed.
+The global inputs of the workflow (or function). These can be used in any step of the workflow. Here fixed values or secrets or variables can be accessed.
  *
 
 **`Example`**
@@ -455,9 +455,9 @@ ___
 
 #### outputs
 
-• **outputs**: `Object`
+• `Optional` **outputs**: `Object`
 
-Outputs of the workflow that can be used as inputs in other workflows or just to inspect the output.
+Outputs of the workflow or function that can be used as inputs in other workflows or functions or just to inspect the output.
 
 ##### Index signature
 
@@ -1151,9 +1151,9 @@ ___
 
 #### inputs
 
-• **inputs**: `Object`
+• `Optional` **inputs**: `Object`
 
-The global inputs of the workflow. These can be used in any step of the workflow. Here fixed values or secrets or variables can be accessed.
+The global inputs of the workflow (or function). These can be used in any step of the workflow. Here fixed values or secrets or variables can be accessed.
  *
 
 **`Example`**
@@ -1212,9 +1212,9 @@ ___
 
 #### outputs
 
-• **outputs**: `Object`
+• `Optional` **outputs**: `Object`
 
-Outputs of the workflow that can be used as inputs in other workflows or just to inspect the output.
+Outputs of the workflow or function that can be used as inputs in other workflows or functions or just to inspect the output.
 
 ##### Index signature
 
