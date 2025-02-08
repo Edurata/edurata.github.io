@@ -14,6 +14,7 @@ grand_parent: Registry
   - [Type Aliases](#type-aliases-1)
     - [Step](#step)
     - [StepBase](#stepbase)
+    - [StepDependencyNested](#stepdependencynested)
     - [StepDependencyString](#stepdependencystring)
     - [StepWithInline](#stepwithinline)
     - [StepWithSource](#stepwithsource)
@@ -48,17 +49,12 @@ grand_parent: Registry
     - [Table of contents](#table-of-contents-9)
     - [Properties](#properties-8)
   - [Interface: StepDependency](#interface-stepdependency)
-    - [Hierarchy](#hierarchy-2)
     - [Table of contents](#table-of-contents-10)
     - [Properties](#properties-9)
-  - [Interface: StepDependencyUseAs](#interface-stepdependencyuseas)
-    - [Hierarchy](#hierarchy-3)
+  - [Interface: WorkflowConfig](#interface-workflowconfig)
+    - [Hierarchy](#hierarchy-2)
     - [Table of contents](#table-of-contents-11)
     - [Properties](#properties-10)
-  - [Interface: WorkflowConfig](#interface-workflowconfig)
-    - [Hierarchy](#hierarchy-4)
-    - [Table of contents](#table-of-contents-12)
-    - [Properties](#properties-11)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
@@ -83,13 +79,13 @@ grand_parent: Registry
 - [SourceRegistry](#interfacessourceregistrymd)
 - [SourceRepo](#interfacessourcerepomd)
 - [StepDependency](#interfacesstepdependencymd)
-- [StepDependencyUseAs](#interfacesstepdependencyuseasmd)
 - [WorkflowConfig](#interfacesworkflowconfigmd)
 
 ### Type Aliases
 
 - [Step](#step)
 - [StepBase](#stepbase)
+- [StepDependencyNested](#stepdependencynested)
 - [StepDependencyString](#stepdependencystring)
 - [StepWithInline](#stepwithinline)
 - [StepWithSource](#stepwithsource)
@@ -111,8 +107,15 @@ ___
 | Name | Type | Description |
 | :------ | :------ | :------ |
 | `description?` | `string` | An additional description next to the key of the step. |
-| `foreach?` | [`StepDependency`](#interfacesstepdependencymd) \| [`StepDependencyString`](#stepdependencystring) | If defined and the dependency is of type array, this step will loop over the array. The props attribute can then use "each" as StepDependencySchema.stepId, pointing to each iteration. |
+| `foreach?` | [`StepDependencyNested`](#stepdependencynested) | If defined and the dependency is of type array, this step will loop over the array. The props attribute can then use "each" as StepDependencySchema.stepId, pointing to each iteration. |
 | `if?` | `string` | If defined, this step will only execute if the condition is true. The condition is a javascript boolean expression. |
+| `props?` | \{ `[key: string]`: [`StepDependencyNested`](#stepdependencynested);  } | Specifies where to get the input data (from other steps or the global inputs of the workflow defined in the "interface" attribute at the top). Each key must be an input of this step and should be defined in FunctionSchema.interface.inputs of the function defined in "source". |
+
+___
+
+### StepDependencyNested
+
+Ƭ **StepDependencyNested**: \{ `[key: string]`: [`StepDependencyNested`](#stepdependencynested);  } \| [`StepDependencyNested`](#stepdependencynested)[] \| [`StepDependency`](#interfacesstepdependencymd) \| [`StepDependencyString`](#stepdependencystring)
 
 ___
 
@@ -140,7 +143,7 @@ ___
 
 ### StepWithSource
 
-Ƭ **StepWithSource**: [`StepBase`](#stepbase) & \{ `props?`: \{ `[key: string]`: [`StepDependency`](#interfacesstepdependencymd) \| [`StepDependencyString`](#stepdependencystring);  } ; `source?`: `Source`  }
+Ƭ **StepWithSource**: [`StepBase`](#stepbase) & \{ `source?`: `Source`  }
 
 Schema for a workflow step with source
 
@@ -267,7 +270,7 @@ The global inputs of the workflow (or function). These can be used in any step o
 
 ##### Index signature
 
-▪ [key: `string`]: [`StepDependencyUseAs`](#interfacesstepdependencyuseasmd)
+▪ [key: `string`]: [`StepDependencyNested`](#stepdependencynested)
 
 ___
 
@@ -295,7 +298,7 @@ Outputs of the workflow or function that can be used as inputs in other workflow
 
 ##### Index signature
 
-▪ [key: `string`]: [`StepDependencyUseAs`](#interfacesstepdependencyuseasmd)
+▪ [key: `string`]: [`StepDependencyNested`](#stepdependencynested)
 
 ___
 
@@ -421,7 +424,7 @@ The global inputs of the workflow (or function). These can be used in any step o
 
 ##### Index signature
 
-▪ [key: `string`]: [`StepDependencyUseAs`](#interfacesstepdependencyuseasmd)
+▪ [key: `string`]: [`StepDependencyNested`](#stepdependencynested)
 
 ##### Inherited from
 
@@ -461,7 +464,7 @@ Outputs of the workflow or function that can be used as inputs in other workflow
 
 ##### Index signature
 
-▪ [key: `string`]: [`StepDependencyUseAs`](#interfacesstepdependencyuseasmd)
+▪ [key: `string`]: [`StepDependencyNested`](#stepdependencynested)
 
 ##### Inherited from
 
@@ -539,6 +542,7 @@ Schema for an interface of a workflow or function.
 | :------ | :------ |
 | `properties?` | \{ `[key: string]`: [`InterfaceProperty`](#interfacesinterfacepropertymd);  } |
 | `required?` | `string`[] |
+| `type?` | ``"object"`` |
 
 ___
 
@@ -552,6 +556,7 @@ ___
 | :------ | :------ |
 | `properties?` | \{ `[key: string]`: [`InterfaceProperty`](#interfacesinterfacepropertymd);  } |
 | `required?` | `string`[] |
+| `type?` | ``"object"`` |
 
 
 <a name="interfacesinterfacepropertymd"></a>
@@ -886,19 +891,12 @@ assuming the step "inputs" has an output "name" that is a complex object with a 
 }
 ```
 
-### Hierarchy
-
-- **`StepDependency`**
-
-  ↳ [`StepDependencyUseAs`](#interfacesstepdependencyuseasmd)
-
 ### Table of contents
 
 #### Properties
 
 - [outputId](#outputid)
 - [outputPath](#outputpath)
-- [props](#props)
 - [stepId](#stepid)
 - [value](#value)
 
@@ -926,15 +924,6 @@ to point to the value. e.g. "data.name" to point to the value of the key "name" 
 ```ts
 ["data", "name"]
 ```
-
-___
-
-#### props
-
-• `Optional` **props**: [`StepDependency`](#interfacesstepdependencymd)[]
-
-If the dependency is a string with interpolated values, these are the interpolated values, if any.
-These are mostly autopopulated and usually don't need to be set manually.
 
 ___
 
@@ -966,137 +955,6 @@ You can also use interpolation here.
 ```ts
 "${inputs.name} is here!"
 ```
-
-
-<a name="interfacesstepdependencyuseasmd"></a>
-
-[@edurata/types](#readmemd) / StepDependencyUseAs
-
-## Interface: StepDependencyUseAs
-
-Schema for an educational function step dependency.
-
-**`Example`**
-
-assuming the step "inputs" has an output "name" with the value "John"
-```typescript
-{
- stepId: "inputs",
- outputId: "name",
-}
-```
-
-**`Example`**
-
-assuming the step "inputs" has an output "name" that is a complex object with a key "firstName" with the value "John"
-```typescript
-{
- stepId: "inputs",
- outputId: "name",
- outputPath: "firstName",
-}
-```
-
-### Hierarchy
-
-- [`StepDependency`](#interfacesstepdependencymd)
-
-  ↳ **`StepDependencyUseAs`**
-
-### Table of contents
-
-#### Properties
-
-- [outputId](#outputid)
-- [outputPath](#outputpath)
-- [props](#props)
-- [stepId](#stepid)
-- [value](#value)
-
-### Properties
-
-#### outputId
-
-• `Optional` **outputId**: `string`
-
-the name of the output of a step (thereby its function). has to be one of the outputs defined in
-FunctionSchema.interface.outputs of the dependent step mentioned with "stepId"
-
-##### Inherited from
-
-[StepDependency](#interfacesstepdependencymd).[outputId](#outputid)
-
-___
-
-#### outputPath
-
-• `Optional` **outputPath**: `string`[]
-
-only used when the output is a complex object and the value is inside. is a string with dot notation
-to point to the value. e.g. "data.name" to point to the value of the key "name" inside the object
-"data".
-
-**`Example`**
-
-```ts
-["data", "name"]
-```
-
-##### Inherited from
-
-[StepDependency](#interfacesstepdependencymd).[outputPath](#outputpath)
-
-___
-
-#### props
-
-• `Optional` **props**: [`StepDependency`](#interfacesstepdependencymd)[]
-
-If the dependency is a string with interpolated values, these are the interpolated values, if any.
-These are mostly autopopulated and usually don't need to be set manually.
-
-##### Inherited from
-
-[StepDependency](#interfacesstepdependencymd).[props](#props)
-
-___
-
-#### stepId
-
-• `Optional` **stepId**: `string`
-
-the step which to depend on. Needs to be one defined in the "steps" attribute of the workflow
-definition. Can be "inputs" to refer to the global inputs of the workflow. Can be "each" if the
-attribute "foreach" in the parent step is defined.
-
-##### Inherited from
-
-[StepDependency](#interfacesstepdependencymd).[stepId](#stepid)
-
-___
-
-#### value
-
-• `Optional` **value**: `string`
-
-If you want to pass in a value directly instead of a step dependency, you can use this attribute.
-You can also use interpolation here.
-
-**`Example`**
-
-```ts
-"examplestring"
-```
-
-**`Example`**
-
-```ts
-"${inputs.name} is here!"
-```
-
-##### Inherited from
-
-[StepDependency](#interfacesstepdependencymd).[value](#value)
 
 
 <a name="interfacesworkflowconfigmd"></a>
@@ -1178,7 +1036,7 @@ The global inputs of the workflow (or function). These can be used in any step o
 
 ##### Index signature
 
-▪ [key: `string`]: [`StepDependencyUseAs`](#interfacesstepdependencyuseasmd)
+▪ [key: `string`]: [`StepDependencyNested`](#stepdependencynested)
 
 ##### Inherited from
 
@@ -1218,7 +1076,7 @@ Outputs of the workflow or function that can be used as inputs in other workflow
 
 ##### Index signature
 
-▪ [key: `string`]: [`StepDependencyUseAs`](#interfacesstepdependencyuseasmd)
+▪ [key: `string`]: [`StepDependencyNested`](#stepdependencynested)
 
 ##### Inherited from
 
