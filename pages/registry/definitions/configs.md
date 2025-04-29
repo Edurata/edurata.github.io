@@ -648,7 +648,7 @@ ___
 
 #### type
 
-• **type**: ``"string"`` \| ``"number"`` \| ``"bigint"`` \| ``"boolean"`` \| ``"undefined"`` \| ``"object"`` \| ``"integer"`` \| ``"null"`` \| ``"array"`` \| ``"any"`` \| ``"file"`` \| ``"env"`` \| ``"cmdValue"`` \| ``"cmdKeyValue"`` \| ``"meta"`` \| ``"dependency"`` \| ``"interpolation"``
+• **type**: ``"string"`` \| ``"number"`` \| ``"bigint"`` \| ``"boolean"`` \| ``"undefined"`` \| ``"object"`` \| ``"array"`` \| ``"integer"`` \| ``"null"`` \| ``"any"`` \| ``"file"`` \| ``"env"`` \| ``"cmdValue"`` \| ``"cmdKeyValue"`` \| ``"meta"`` \| ``"dependency"`` \| ``"interpolation"``
 
 
 <a name="interfacesregistrymd"></a>
